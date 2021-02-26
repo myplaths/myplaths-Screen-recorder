@@ -10,6 +10,7 @@ namespace MyPlathsRecordingSoftware
 {
     public static class MouseDownBehavior
     {
+        //test
         #region Dependecy Property
         private static readonly DependencyProperty MouseDownCommandProperty = DependencyProperty.RegisterAttached
                     (
