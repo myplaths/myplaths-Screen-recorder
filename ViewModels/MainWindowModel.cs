@@ -75,6 +75,8 @@ namespace Default_WPF_MVVM_Pattern_Implemented.ViewModels
         }
 
         bool isFirstTime = false;
+
+
         private void LeftClickDown()
         {
             RecordWindow rec = new RecordWindow();
@@ -82,6 +84,8 @@ namespace Default_WPF_MVVM_Pattern_Implemented.ViewModels
 
           
         }
+
+
         private Dictionary<double, double> GetPosition()
         {
             Dictionary<double, double> startingPos = new Dictionary<double, double>();
@@ -184,6 +188,7 @@ namespace Default_WPF_MVVM_Pattern_Implemented.ViewModels
                 OnPropertyChanged("PanelY");
             }
         }
+
         [Conditional("DEBUG")]
         private void VerifyPropertyName(string propertyName)
         {
