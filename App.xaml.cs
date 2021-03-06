@@ -1,4 +1,6 @@
-﻿using Default_WPF_MVVM_Pattern_Implemented.ViewModels;
+﻿using MyPlathsRecordingSoftware.Dialog;
+using MyPlathsRecordingSoftware.ViewModels;
+using MyPlathsRecordingSoftware.Views;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Default_WPF_MVVM_Pattern_Implemented
+namespace MyPlathsRecordingSoftware
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -18,8 +20,12 @@ namespace Default_WPF_MVVM_Pattern_Implemented
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            IDialogService dialogService = new DialogService(MainWindow);
+
+            dialogService.Register<RecordWindowModel, RecordWindow>();
+
             MainWindow mainWindow = new MainWindow();
-            MainWindowModel mainWindowModel = new MainWindowModel();
+            MainWindowModel mainWindowModel = new MainWindowModel(dialogService);
             mainWindow.DataContext = mainWindowModel;
             mainWindow.Show();
         }

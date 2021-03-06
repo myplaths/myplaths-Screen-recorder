@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Default_WPF_MVVM_Pattern_Implemented.Views
+namespace MyPlathsRecordingSoftware.Views
 {
     /// <summary>
     /// Interaction logic for SecondPageUserControl.xaml

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPlathsRecordingSoftware", "MyPlathsRecordingSoftware.csproj", "{27880921-EFE2-4663-B368-A1996BD9DE5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReusableStuff", "..\ReusableStuff\ReusableStuff.csproj", "{4513B45A-F14C-4753-93AA-1C8C9566E529}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReusableStuff", "..\..\ReusableStuff\ReusableStuff.csproj", "{4513B45A-F14C-4753-93AA-1C8C9566E529}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

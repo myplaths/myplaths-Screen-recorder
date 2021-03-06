@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Input;
 
-namespace Default_WPF_MVVM_Pattern_Implemented.ViewModels
+namespace MyPlathsRecordingSoftware.ViewModels
 {
     public class RelayCommand<T> : ICommand
     {

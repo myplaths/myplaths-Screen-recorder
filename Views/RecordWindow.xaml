@@ -116,7 +116,7 @@
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="Red"
-            Click="ButtonBase_OnClick"
+            Command="{Binding OkCommand}"
             Content="X"
             FontSize="25"
             FontWeight="Bold" />

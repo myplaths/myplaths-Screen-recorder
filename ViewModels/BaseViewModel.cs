@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Default_WPF_MVVM_Pattern_Implemented.ViewModels
+namespace MyPlathsRecordingSoftware.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

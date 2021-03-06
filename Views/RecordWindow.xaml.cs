@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyPlathsRecordingSoftware.Dialog;
+using MyPlathsRecordingSoftware.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -18,7 +20,7 @@ namespace MyPlathsRecordingSoftware.Views
     /// <summary>
     /// Interaction logic for RecordWindow.xaml
     /// </summary>
-    public partial class RecordWindow : Window, INotifyPropertyChanged
+    public partial class RecordWindow : Window, IDialog, INotifyPropertyChanged
     {
         private Point _point;
         private readonly double _screenWidth = SystemParameters.PrimaryScreenWidth;
@@ -44,6 +46,8 @@ namespace MyPlathsRecordingSoftware.Views
         {
             InitializeComponent();
             this.DataContext = this;
+            DataContext = new RecordWindowModel();
+            //this.DataContext = this;
         }
         // The part of the rectangle the mouse is over.
         private enum HitType

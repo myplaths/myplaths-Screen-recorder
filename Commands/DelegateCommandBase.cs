@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Default_WPF_MVVM_Pattern_Implemented.Commands
+namespace MyPlathsRecordingSoftware.Commands
 {
     public class DelegateCommandBase : ICommand
     {

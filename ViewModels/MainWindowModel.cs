@@ -1,5 +1,5 @@
 ﻿using Accord.Video;
-using Default_WPF_MVVM_Pattern_Implemented.Commands;
+using MyPlathsRecordingSoftware.Commands;
 using MyPlathsRecordingSoftware;
 using MyPlathsRecordingSoftware.Views;
 using System;
@@ -17,7 +17,9 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
-namespace Default_WPF_MVVM_Pattern_Implemented.ViewModels
+using MyPlathsRecordingSoftware.Dialog;
+
+namespace MyPlathsRecordingSoftware.ViewModels
 {
     //https://social.msdn.microsoft.com/Forums/vstudio/en-US/b59975f9-3039-42af-b6b6-9c6d17079d24/binding-mouse-position-in-mvvm-is-it-possible?forum=wpf
     public class MainWindowModel : BaseViewModel
@@ -54,8 +56,11 @@ namespace Default_WPF_MVVM_Pattern_Implemented.ViewModels
             get { return _TestText; }
             set { _TestText = value; OnPropertyChanged(nameof(TestText)); }
         }
-        public MainWindowModel()
+        private readonly IDialogService _dialogService;
+
+        public MainWindowModel(IDialogService dialogService)
         {
+            _dialogService = dialogService;
             LeftClickDownCommand = new DelegateCommand(LeftClickDown);
             LeftClickUpCommand = new DelegateCommand<object>(LeftClickUp);
             //RectangleWidth = MouseDownBehavior.SetMouseDownCommand((UIElement)LeftMouseButtonDown, _previewMouseMove);
@@ -79,8 +84,22 @@ namespace Default_WPF_MVVM_Pattern_Implemented.ViewModels
 
         private void LeftClickDown()
         {
-            RecordWindow rec = new RecordWindow();
-            rec.Show();
+            var viewModel = new RecordWindowModel("hello");
+
+            bool? result = _dialogService.ShowDialog(viewModel);
+            if(result.HasValue)
+            {
+                if(result.Value)
+                {
+                    Console.WriteLine("result has value");
+                }
+                else
+                {
+                    Console.WriteLine("result do not have value");
+                }
+            }
+
+           
 
           
         }

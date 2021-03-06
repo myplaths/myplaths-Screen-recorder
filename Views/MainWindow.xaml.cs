@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-namespace Default_WPF_MVVM_Pattern_Implemented
+namespace MyPlathsRecordingSoftware
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
