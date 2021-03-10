@@ -103,6 +103,16 @@
                             <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5" />
                         </Label.LayoutTransform>
                     </Label>
+                    <TextBlock
+                        Grid.Column="1"
+                        Width="91"
+                        Height="42"
+                        Margin="18,63,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Foreground="White"
+                        Text="{Binding MyText}"
+                        TextWrapping="Wrap" />
 
                 </Grid>
             </Border>

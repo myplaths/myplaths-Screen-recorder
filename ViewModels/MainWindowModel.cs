@@ -24,6 +24,15 @@ namespace MyPlathsRecordingSoftware.ViewModels
     //https://social.msdn.microsoft.com/Forums/vstudio/en-US/b59975f9-3039-42af-b6b6-9c6d17079d24/binding-mouse-position-in-mvvm-is-it-possible?forum=wpf
     public class MainWindowModel : BaseViewModel
     {
+        private string _WidthAndHeight;
+
+        public string WidthAndHeight
+        {
+            get { return _WidthAndHeight; }
+            set { _WidthAndHeight = value; OnPropertyChanged(nameof(WidthAndHeight));}
+        }
+
+
         bool captured = false;
         public ICommand _leftButtonDownCommand;
         public ICommand _leftButtonUpCommand;
@@ -60,16 +69,17 @@ namespace MyPlathsRecordingSoftware.ViewModels
 
         public MainWindowModel(IDialogService dialogService)
         {
+           
             _dialogService = dialogService;
             LeftClickDownCommand = new DelegateCommand(LeftClickDown);
             LeftClickUpCommand = new DelegateCommand<object>(LeftClickUp);
-            //RectangleWidth = MouseDownBehavior.SetMouseDownCommand((UIElement)LeftMouseButtonDown, _previewMouseMove);
-            RectangleWidth = 300;
-            RectangleHeight = 300;
-            PanelX = 100;
-            PanelY = 100;
-            RectX = PanelX - 50.0;
-            RectY = PanelY - 50.0;
+            ////RectangleWidth = MouseDownBehavior.SetMouseDownCommand((UIElement)LeftMouseButtonDown, _previewMouseMove);
+            //Rectangl
+            //RectY = PanelY - 50.0;eWidth = 300;
+            //RectangleHeight = 300;
+            //PanelX = 100;
+            //PanelY = 100;
+            //RectX = PanelX - 50.0;
 
         }
         private void LeftClickUp(object parameter)
@@ -126,94 +136,7 @@ namespace MyPlathsRecordingSoftware.ViewModels
             GetCursorPos(ref w32Mouse);
             return new Point(w32Mouse.X, w32Mouse.Y);
         }
-        public ICommand PreviewMouseMove
-        {
-            get
-            {
-                return _previewMouseMove ?? (_previewMouseMove = new RelayCommand(
-                   x =>
-                   {
-                       if(captured)
-                       {
-                           RectX = PanelX - 50.0;
-                           RectY = PanelY - 50.0;
-                       }
-                   }));
-            }
-        }
-        public ICommand LeftMouseButtonUp
-        {
-            get
-            {
-                return _leftMouseButtonUp ?? (_leftMouseButtonUp = new RelayCommand(
-                   x =>
-                   {
-                       captured = false;
-                   }));
-            }
-        }
-        public ICommand LeftMouseButtonDown
-        {
-            get
-            {
-                return _leftButtonDownCommand ?? (_leftButtonDownCommand = new RelayCommand(
-                   x =>
-                   {
-                       captured = true;
-                   }));
-            }
-        }
-        private double _panelX;
-        private double _panelY;
-        private double _rectX;
-        private double _rectY;
-        public double RectX
-        {
-            get { return _rectX; }
-            set
-            {
-                if(value.Equals(_rectX)) return;
-                _rectX = value;
-                OnPropertyChanged("RectX");
-            }
-        }
-        public double RectY
-        {
-            get { return _rectY; }
-            set
-            {
-                if(value.Equals(_rectY)) return;
-                _rectY = value;
-                OnPropertyChanged("RectY");
-            }
-        }
-        public double PanelX
-        {
-            get { return _panelX; }
-            set
-            {
-                if(value.Equals(_panelX)) return;
-                _panelX = value;
-                OnPropertyChanged("PanelX");
-            }
-        }
-        public double PanelY
-        {
-            get { return _panelY; }
-            set
-            {
-                if(value.Equals(_panelY)) return;
-                _panelY = value;
-                OnPropertyChanged("PanelY");
-            }
-        }
-
-        [Conditional("DEBUG")]
-        private void VerifyPropertyName(string propertyName)
-        {
-            if(TypeDescriptor.GetProperties(this)[propertyName] == null)
-                throw new ArgumentNullException(GetType().Name + " does not contain property: " + propertyName);
-        }
+      
     }
 
    

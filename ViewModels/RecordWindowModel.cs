@@ -12,6 +12,18 @@ namespace MyPlathsRecordingSoftware.ViewModels
     public class RecordWindowModel : BaseViewModel,IDialogRequestClose
     {
         private BaseViewModel _selectedViewModel;
+        public BaseViewModel SelectedViewModel
+        {
+            get
+            {
+                return _selectedViewModel;
+            }
+            set
+            {
+                _selectedViewModel = value; OnPropertyChanged(nameof(SelectedViewModel));
+            }
+        }
+
 
         public event EventHandler<DialogCloseRequestedEventArgs> CloseRequested;
         public string Message { get; }
@@ -20,6 +32,7 @@ namespace MyPlathsRecordingSoftware.ViewModels
 
         public RecordWindowModel()
         {
+            
         }
 
         public RecordWindowModel(string message)
@@ -27,6 +40,7 @@ namespace MyPlathsRecordingSoftware.ViewModels
             Message = message;
             OkCommand = new DelegateCommand(Submit);
             CancelCommand = new DelegateCommand(Cancel);
+            
         }
 
         private void Cancel()
@@ -39,17 +53,7 @@ namespace MyPlathsRecordingSoftware.ViewModels
             CloseRequested?.Invoke(this, new DialogCloseRequestedEventArgs(true));
         }
 
-        public BaseViewModel SelectedViewModel
-        {
-            get
-            {
-                return _selectedViewModel;
-            }
-            set
-            {
-                _selectedViewModel = value; OnPropertyChanged(nameof(SelectedViewModel));
-            }
-        }
+        
 
         
     }

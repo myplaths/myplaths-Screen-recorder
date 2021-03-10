@@ -69,11 +69,7 @@
                 VerticalAlignment="Stretch"
                 BorderBrush="Gray"
                 BorderThickness="5">
-                <Image
-                    x:Name="ctlImage"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Stretch="Fill" />
+                <TextBlock Text="{Binding WidthAndHeight}" />
             </Border>
             <ContentControl  Visibility="Collapsed"  Grid.Row="1" x:Name="contentc" Content="{Binding TestText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" /> 
             <Rectangle

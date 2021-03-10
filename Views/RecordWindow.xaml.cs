@@ -45,7 +45,6 @@ namespace MyPlathsRecordingSoftware.Views
         public RecordWindow()
         {
             InitializeComponent();
-            this.DataContext = this;
             DataContext = new RecordWindowModel();
             //this.DataContext = this;
         }
@@ -235,7 +234,7 @@ namespace MyPlathsRecordingSoftware.Views
         }
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            //Application.Current.Shutdown();
         }
         #region Inotify
         public event PropertyChangedEventHandler PropertyChanged;
@@ -244,7 +243,5 @@ namespace MyPlathsRecordingSoftware.Views
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
-
     }
 }
-
