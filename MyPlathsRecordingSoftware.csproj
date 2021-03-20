@@ -115,19 +115,24 @@
     <Compile Include="DependencyProperties\MyMouseBehaviour.cs" />
     <Compile Include="Dialog\IDialog.cs" />
     <Compile Include="MouseDownBehavior.cs" />
+    <Compile Include="Random\ConsoleView.cs" />
     <Compile Include="Random\EventArgs.cs" />
     <Compile Include="Random\EventRaiser.cs" />
     <Compile Include="Random\ExampleRecording.cs" />
     <Compile Include="Random\MouseBehaviour.cs" />
+    <Compile Include="Random\TestClassNotInUse.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\RecordWindowModel.cs" />
+    <Compile Include="Views\DebugWindow.xaml.cs">
+      <DependentUpon>DebugWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DependencyTest.xaml.cs">
       <DependentUpon>DependencyTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RecordControl.xaml.cs">
-      <DependentUpon>RecordControl.xaml</DependentUpon>
+    <Compile Include="Views\FrmConsole.xaml.cs">
+      <DependentUpon>FrmConsole.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RecordWindow.xaml.cs">
       <DependentUpon>RecordWindow.xaml</DependentUpon>
@@ -135,7 +140,15 @@
     <Compile Include="Views\SecondPageUserControl.xaml.cs">
       <DependentUpon>SecondPageUserControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\DebugWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DependencyTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FrmConsole.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,10 +164,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\RecordControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\RecordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

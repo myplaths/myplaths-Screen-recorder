@@ -164,17 +164,6 @@
             </DockPanel>
         </Grid>
 
-        <Grid
-            x:Name="MyGrid"
-            MouseLeftButtonDown="MyGrid_MouseLeftButtonDown"
-            Visibility="Collapsed">
-            <StackPanel>
-                <ContentControl Content="{Binding SelectedViewModel}" />
-                <Label Name="coordinatesx" Content="show coordinates" />
-                <Label Content="{Binding Name}" />
-                <Button Command="{Binding TestCommand}" Content="Test" />
-            </StackPanel>
-            <ContentControl Content="{Binding SelectedViewModel}" />
-        </Grid>
+      
     </Grid>
 </Window>

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPlathsRecordingSoftware",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReusableStuff", "..\..\ReusableStuff\ReusableStuff.csproj", "{4513B45A-F14C-4753-93AA-1C8C9566E529}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF TESTING", "..\..\WPF-TESTING\WPF TESTING.csproj", "{DBA0002B-FD3F-410D-ADE9-60729B173F37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAggregator", "..\..\EventAggregator\EventAggregator.csproj", "{DB4DF4EF-0CC0-448A-95F4-4F4974F8D105}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +34,22 @@ Global
 		{4513B45A-F14C-4753-93AA-1C8C9566E529}.Release|Any CPU.Build.0 = Debug|x86
 		{4513B45A-F14C-4753-93AA-1C8C9566E529}.Release|x86.ActiveCfg = Debug|x86
 		{4513B45A-F14C-4753-93AA-1C8C9566E529}.Release|x86.Build.0 = Debug|x86
+		{DBA0002B-FD3F-410D-ADE9-60729B173F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBA0002B-FD3F-410D-ADE9-60729B173F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBA0002B-FD3F-410D-ADE9-60729B173F37}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DBA0002B-FD3F-410D-ADE9-60729B173F37}.Debug|x86.Build.0 = Debug|Any CPU
+		{DBA0002B-FD3F-410D-ADE9-60729B173F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBA0002B-FD3F-410D-ADE9-60729B173F37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBA0002B-FD3F-410D-ADE9-60729B173F37}.Release|x86.ActiveCfg = Release|Any CPU
+		{DBA0002B-FD3F-410D-ADE9-60729B173F37}.Release|x86.Build.0 = Release|Any CPU
+		{DB4DF4EF-0CC0-448A-95F4-4F4974F8D105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB4DF4EF-0CC0-448A-95F4-4F4974F8D105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB4DF4EF-0CC0-448A-95F4-4F4974F8D105}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DB4DF4EF-0CC0-448A-95F4-4F4974F8D105}.Debug|x86.Build.0 = Debug|Any CPU
+		{DB4DF4EF-0CC0-448A-95F4-4F4974F8D105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB4DF4EF-0CC0-448A-95F4-4F4974F8D105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB4DF4EF-0CC0-448A-95F4-4F4974F8D105}.Release|x86.ActiveCfg = Release|Any CPU
+		{DB4DF4EF-0CC0-448A-95F4-4F4974F8D105}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

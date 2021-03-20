@@ -90,7 +90,7 @@ namespace MyPlathsRecordingSoftware.ViewModels
         }
 
         bool isFirstTime = false;
-
+        private Action<object, SizeChangedEventArgs> SizeChanged;
 
         private void LeftClickDown()
         {
@@ -101,11 +101,14 @@ namespace MyPlathsRecordingSoftware.ViewModels
             {
                 if(result.Value)
                 {
-                    Console.WriteLine("result has value");
+                    Console.WriteLine("result has value" + result.Value);
                 }
                 else
                 {
-                    Console.WriteLine("result do not have value");
+                    Console.WriteLine("result do not have value" + result.Value);
+
+                    
+
                 }
             }
 
@@ -113,6 +116,17 @@ namespace MyPlathsRecordingSoftware.ViewModels
 
           
         }
+
+        protected void OnWindowSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            double newWindowHeight = e.NewSize.Height;
+            double newWindowWidth = e.NewSize.Width;
+            double prevWindowHeight = e.PreviousSize.Height;
+            double prevWindowWidth = e.PreviousSize.Width;
+
+            Console.WriteLine("newWindowHeight " + newWindowHeight + "newWindowWidth " + newWindowWidth + "prevWindowHeight" + prevWindowHeight + "prevWindowWidth" + prevWindowWidth);
+        }
+
 
 
         private Dictionary<double, double> GetPosition()

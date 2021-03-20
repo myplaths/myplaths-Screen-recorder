@@ -25,12 +25,7 @@ namespace MyPlathsRecordingSoftware
             InitializeComponent();
         }
 
-        private void MyGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            //coordinates.Content = PointToScreen(pointToWindow);
-            var relativePosition = e.GetPosition(this);
-            var point = PointToScreen(relativePosition);
-        }
+      
 
     }
 }
