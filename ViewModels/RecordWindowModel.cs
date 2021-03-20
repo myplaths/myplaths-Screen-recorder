@@ -58,7 +58,7 @@ namespace MyPlathsRecordingSoftware.ViewModels
         {
             CloseRequested?.Invoke(this, new DialogCloseRequestedEventArgs(true));
         }
-
+        //
         #region notinuse
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
