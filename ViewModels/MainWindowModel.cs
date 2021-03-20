@@ -29,7 +29,7 @@ namespace MyPlathsRecordingSoftware.ViewModels
         public string WidthAndHeight
         {
             get { return _WidthAndHeight; }
-            set { _WidthAndHeight = value; OnPropertyChanged(nameof(WidthAndHeight));}
+            set { _WidthAndHeight = value; OnPropertyChanged(nameof(WidthAndHeight)); }
         }
 
 
@@ -69,7 +69,7 @@ namespace MyPlathsRecordingSoftware.ViewModels
 
         public MainWindowModel(IDialogService dialogService)
         {
-           
+
             _dialogService = dialogService;
             LeftClickDownCommand = new DelegateCommand(LeftClickDown);
             LeftClickUpCommand = new DelegateCommand<object>(LeftClickUp);
@@ -89,32 +89,25 @@ namespace MyPlathsRecordingSoftware.ViewModels
             Console.WriteLine("secondtime");
         }
 
-        bool isFirstTime = false;
-        private Action<object, SizeChangedEventArgs> SizeChanged;
+       
 
         private void LeftClickDown()
         {
             var viewModel = new RecordWindowModel("hello");
-
             bool? result = _dialogService.ShowDialog(viewModel);
             if(result.HasValue)
             {
                 if(result.Value)
                 {
+                    Console.WriteLine("width" + viewModel.Width);
+                    Console.WriteLine("height" + viewModel.Height);
                     Console.WriteLine("result has value" + result.Value);
                 }
                 else
                 {
                     Console.WriteLine("result do not have value" + result.Value);
-
-                    
-
                 }
             }
-
-           
-
-          
         }
 
         protected void OnWindowSizeChanged(object sender, SizeChangedEventArgs e)
@@ -150,10 +143,10 @@ namespace MyPlathsRecordingSoftware.ViewModels
             GetCursorPos(ref w32Mouse);
             return new Point(w32Mouse.X, w32Mouse.Y);
         }
-      
+
     }
 
-   
 
-    
+
+
 }

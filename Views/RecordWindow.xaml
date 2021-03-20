@@ -15,35 +15,35 @@
     ResizeMode="CanResizeWithGrip"
     Topmost="false"
     WindowState="Normal"
-    WindowStyle="ToolWindow"
+    WindowStyle="None"
     mc:Ignorable="d">
 
 
     <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
 
-        <Rectangle
-            Fill="white"
-            Stroke="DarkGray"
-            StrokeThickness="3"
-            Visibility="Collapsed" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        <Rectangle
-            Width="{Binding RectWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            Height="{Binding RectHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            Margin="{Binding MarginRectangle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Fill="red"
-            Stroke="DarkGray"
-            StrokeThickness="3"
-            Visibility="Collapsed" />
-        <TextBlock Text="Select your recording area, and your resolution will be saved when you close the window." TextWrapping="Wrap" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Select your recording area, and your resolution will be saved when you close the window."
+                TextWrapping="Wrap" />
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Command="{Binding OkCommand}"
+                Content="X" />
+        </Grid>
 
 
-        <StackPanel>
-            <TextBlock FontSize="30" Text="{Binding Coordinates, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock FontSize="30" Text="{Binding CoordinatesTwo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        </StackPanel>
     </Grid>
 
 

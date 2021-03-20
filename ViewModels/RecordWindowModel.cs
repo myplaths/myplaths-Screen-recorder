@@ -36,8 +36,28 @@ namespace MyPlathsRecordingSoftware.ViewModels
         public string Message { get; }
         public ICommand OkCommand { get; set; }
         public ICommand CancelCommand { get; set; }
-        
-       
+
+        private int _Width;
+
+        public int Width
+        {
+            get { return _Width; }
+            set { _Width = value; OnPropertyChanged(nameof(Width));}
+        }
+
+        private int _Height;
+
+        public int Height
+        {
+            get { return _Height; }
+            set { _Height = value; OnPropertyChanged(nameof(Height));}
+        }
+
+
+
+
+
+
         public RecordWindowModel()
         {
         }
@@ -56,8 +76,11 @@ namespace MyPlathsRecordingSoftware.ViewModels
         }
         private void Submit()
         {
+            Width = 55;
+            Height = 55;
             CloseRequested?.Invoke(this, new DialogCloseRequestedEventArgs(true));
         }
+
         //
         #region notinuse
         [DllImport("user32.dll")]
