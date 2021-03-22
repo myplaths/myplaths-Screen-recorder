@@ -112,6 +112,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\DelegateCommandBase.cs" />
+    <Compile Include="Converters\ButtonMultipleParameters.cs" />
     <Compile Include="DependencyProperties\MyMouseBehaviour.cs" />
     <Compile Include="Dialog\IDialog.cs" />
     <Compile Include="MouseDownBehavior.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Random\ExampleRecording.cs" />
     <Compile Include="Random\MouseBehaviour.cs" />
     <Compile Include="Random\TestClassNotInUse.cs" />
+    <Compile Include="Resolution\IResolution.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
@@ -201,7 +203,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Converters\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

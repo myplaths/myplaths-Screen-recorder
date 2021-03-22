@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyPlathsRecordingSoftware.ViewModels;
+using System;
 using System.Windows.Input;
 
 namespace MyPlathsRecordingSoftware.Commands
@@ -44,16 +45,51 @@ namespace MyPlathsRecordingSoftware.Commands
         }
     }
 
+
+
+    public class DelegateCommandDoubleParameters : ICommand
+    {
+        public DelegateCommandDoubleParameters(RecordWindowModel viewModel)
+        {
+            _viewModel = viewModel;
+        }
+
+        public RecordWindowModel _viewModel { get; }
+
+        public event EventHandler CanExecuteChanged;
+
+
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            var values = (object[])parameter;
+            double width = (double)values[0];
+            double height = (double)values[1];
+            _viewModel.Width = width;
+            _viewModel.Height = height;
+            _viewModel.Submit();
+
+
+        }
+    }
+
+
+
+
     public class DelegateCommand<T> : DelegateCommandBase
     {
         public DelegateCommand(Action<T> execute) :
             base(new Action<object>(o => {
-                if(null != execute)
-                {
-                    execute((T)o);
-                }
+                execute?.Invoke((T)o);
             }))
         { }
+        
+             
+
 
         public DelegateCommand(Action<T> execute, Func<T, bool> canExecuteMethod) :
             base(new Action<object>(o =>

@@ -1,6 +1,7 @@
 ﻿using MyPlathsRecordingSoftware.Commands;
 using MyPlathsRecordingSoftware.Dialog;
 using MyPlathsRecordingSoftware.Random;
+using MyPlathsRecordingSoftware.Resolution;
 using MyPlathsRecordingSoftware.Views;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 namespace MyPlathsRecordingSoftware.ViewModels
 {
-    public class RecordWindowModel : BaseViewModel, IDialogRequestClose
+    public class RecordWindowModel : BaseViewModel, IDialogRequestClose,ICommand
     {
         private BaseViewModel _selectedViewModel;
         public BaseViewModel SelectedViewModel
@@ -33,28 +34,29 @@ namespace MyPlathsRecordingSoftware.ViewModels
         private readonly double _screenWidth = SystemParameters.PrimaryScreenWidth;
         private readonly double _screenHeight = SystemParameters.PrimaryScreenHeight;
         public event EventHandler<DialogCloseRequestedEventArgs> CloseRequested;
+        public event EventHandler<ResolutionEventArgs> SubmitWidthAndHeightRequested;
+        public event EventHandler CanExecuteChanged;
+
         public string Message { get; }
         public ICommand OkCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
-        private int _Width;
 
-        public int Width
+        private double _width;
+
+        public double Width
         {
-            get { return _Width; }
-            set { _Width = value; OnPropertyChanged(nameof(Width));}
+            get { return _width; }
+            set { _width = value; OnPropertyChanged(nameof(Width));}
         }
 
-        private int _Height;
+        private double _height;
 
-        public int Height
+        public double Height
         {
-            get { return _Height; }
-            set { _Height = value; OnPropertyChanged(nameof(Height));}
+            get { return _height; }
+            set { _height = value; OnPropertyChanged(nameof(Height)); }
         }
-
-
-
 
 
 
@@ -64,7 +66,7 @@ namespace MyPlathsRecordingSoftware.ViewModels
         public RecordWindowModel(string message)
         {
             Message = message;
-            OkCommand = new DelegateCommand(Submit);
+            OkCommand = new DelegateCommand<object>(Execute);
             CancelCommand = new DelegateCommand(Cancel);
           
             
@@ -74,11 +76,26 @@ namespace MyPlathsRecordingSoftware.ViewModels
         {
             CloseRequested?.Invoke(this, new DialogCloseRequestedEventArgs(false));
         }
-        private void Submit()
+        public void Submit()
         {
-            Width = 55;
-            Height = 55;
+            
             CloseRequested?.Invoke(this, new DialogCloseRequestedEventArgs(true));
+        }
+
+
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            var values = (object[])parameter;
+            double width = (double)values[0];
+            double height = (double)values[1];
+            Width = width;
+            Height = height;
+            Submit();
         }
 
         //
@@ -98,6 +115,8 @@ namespace MyPlathsRecordingSoftware.ViewModels
             GetCursorPos(ref w32Mouse);
             return new Point(w32Mouse.X, w32Mouse.Y);
         }
+
+        
         #endregion
     }
 }

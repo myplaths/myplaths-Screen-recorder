@@ -1,4 +1,5 @@
 ﻿using MyPlathsRecordingSoftware.Dialog;
+using MyPlathsRecordingSoftware.Resolution;
 using MyPlathsRecordingSoftware.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -22,10 +23,14 @@ namespace MyPlathsRecordingSoftware.Views
     /// </summary>
     public partial class RecordWindow : Window, IDialog
     {
-    public RecordWindow()
-    {
-        InitializeComponent();
-        DataContext = new RecordWindowModel();
-    }
+        public RecordWindow()
+        {
+            InitializeComponent();
+            DataContext = new RecordWindowModel();
+            
+
+        }
+
+        
     }
 }
