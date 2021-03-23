@@ -1,7 +1,6 @@
 ﻿using MyPlathsRecordingSoftware.Commands;
 using MyPlathsRecordingSoftware.Dialog;
 using MyPlathsRecordingSoftware.Random;
-using MyPlathsRecordingSoftware.Resolution;
 using MyPlathsRecordingSoftware.Views;
 using System;
 using System.Collections.Generic;
@@ -31,10 +30,8 @@ namespace MyPlathsRecordingSoftware.ViewModels
                 _selectedViewModel = value; OnPropertyChanged(nameof(SelectedViewModel));
             }
         }
-        private readonly double _screenWidth = SystemParameters.PrimaryScreenWidth;
-        private readonly double _screenHeight = SystemParameters.PrimaryScreenHeight;
+       
         public event EventHandler<DialogCloseRequestedEventArgs> CloseRequested;
-        public event EventHandler<ResolutionEventArgs> SubmitWidthAndHeightRequested;
         public event EventHandler CanExecuteChanged;
 
         public string Message { get; }
@@ -60,12 +57,10 @@ namespace MyPlathsRecordingSoftware.ViewModels
 
 
 
+
         public RecordWindowModel()
         {
-        }
-        public RecordWindowModel(string message)
-        {
-            Message = message;
+           
             OkCommand = new DelegateCommand<object>(Execute);
             CancelCommand = new DelegateCommand(Cancel);
           
@@ -98,25 +93,6 @@ namespace MyPlathsRecordingSoftware.ViewModels
             Submit();
         }
 
-        //
-        #region notinuse
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool GetCursorPos(ref Win32Point pt);
-        [StructLayout(LayoutKind.Sequential)]
-        internal struct Win32Point
-        {
-            public Int32 X;
-            public Int32 Y;
-        };
-        public static Point GetMousePosition()
-        {
-            var w32Mouse = new Win32Point();
-            GetCursorPos(ref w32Mouse);
-            return new Point(w32Mouse.X, w32Mouse.Y);
-        }
-
-        
-        #endregion
+      
     }
 }

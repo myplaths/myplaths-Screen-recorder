@@ -14,26 +14,12 @@
     xmlns:views="clr-namespace:MyPlathsRecordingSoftware.Views"
     Title="MainWindow"
     Width="800"
-    Height="450"    
+    Height="450"
     mc:Ignorable="d">
 
 
-
-
-
     <Grid x:Name="Target">
-        <!--
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="PreviewMouseDown">
-                <i:InvokeCommandAction Command="{Binding LeftClickDownCommand}" CommandParameter="{Binding ElementName=Target}" />
-            </i:EventTrigger>
-            <i:EventTrigger EventName="PreviewMouseUp">
-                <i:InvokeCommandAction Command="{Binding LeftClickUpCommand}" CommandParameter="{Binding ElementName=Target}" />
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
-        -->
-        
-        
+
         <Grid Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
@@ -58,7 +44,7 @@
                 <Button
                     Width="auto"
                     VerticalAlignment="Stretch"
-                    Command="{Binding LeftClickDownCommand}"
+                    Command="{Binding SetResolutionCommand}"
                     Content="Capture" />
             </StackPanel>
 
@@ -68,102 +54,10 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 BorderBrush="Gray"
-                BorderThickness="5">
-                <TextBlock Text="{Binding WidthAndHeight}" />
-            </Border>
-            <ContentControl  Visibility="Collapsed"  Grid.Row="1" x:Name="contentc" Content="{Binding TestText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" /> 
-            <Rectangle
-                x:Name="recSelection"
-                Grid.Row="1"
-                HorizontalAlignment="Left"
-                VerticalAlignment="top"
-                Fill="Transparent"
-                IsHitTestVisible="False"
-                Stroke="Red"
-                Visibility="Visible" />
-
-
-
-
-
+                BorderThickness="5" />
 
         </Grid>
 
 
-        <Grid Visibility="Collapsed">
-            <Border Background="Transparent">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="PreviewMouseDown">
-                        <i:InvokeCommandAction Command="{Binding LeftClickDownCommand}" CommandParameter="{Binding ElementName=Target}" />
-                    </i:EventTrigger>
-                    <i:EventTrigger EventName="PreviewMouseUp">
-                        <i:InvokeCommandAction Command="{Binding LeftClickUpCommand}" CommandParameter="{Binding ElementName=Target}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </Border>
-
-            <Rectangle
-                Width="{Binding RectangleWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                Height="{Binding RectangleHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                Fill="Red" />
-
-        </Grid>
-
-
-
-
-
-
-
-
-
-
-
-        <Grid Visibility="Collapsed">
-            <Label Name="coordinates" Content="show coordinates" />
-            <DockPanel>
-                <!--  Un-comment if you want to view the coordinates  -->
-                <!--<StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                <TextBlock Text="{Binding PanelX, StringFormat='X={0}'}" />
-                <TextBlock Text="{Binding PanelY, StringFormat='y={0}'}" />
-            </StackPanel>-->
-
-                <Canvas x:Name="LayoutRoot" Background="White">
-
-                    <i:Interaction.Behaviors>
-                        <random:MouseBehaviour MouseX="{Binding PanelX, Mode=OneWayToSource}" MouseY="{Binding PanelY, Mode=OneWayToSource}" />
-                    </i:Interaction.Behaviors>
-
-                    <Rectangle
-                        x:Name="testSquare"
-                        Canvas.Left="{Binding RectX, Mode=TwoWay}"
-                        Canvas.Top="{Binding RectY, Mode=TwoWay}"
-                        Width="100"
-                        Height="100"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Bottom"
-                        Fill="Red"
-                        Stroke="Black">
-
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="PreviewMouseDown">
-                                <i:InvokeCommandAction Command="{Binding ElementName=testSquare, Path=DataContext.LeftMouseButtonDown}" CommandParameter="{Binding}" />
-                            </i:EventTrigger>
-
-                            <i:EventTrigger EventName="PreviewMouseUp">
-                                <i:InvokeCommandAction Command="{Binding ElementName=testSquare, Path=DataContext.LeftMouseButtonUp}" CommandParameter="{Binding}" />
-                            </i:EventTrigger>
-
-                            <i:EventTrigger EventName="PreviewMouseMove">
-                                <i:InvokeCommandAction Command="{Binding ElementName=testSquare, Path=DataContext.PreviewMouseMove}" CommandParameter="{Binding}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-
-                    </Rectangle>
-                </Canvas>
-            </DockPanel>
-        </Grid>
-
-      
     </Grid>
 </Window>

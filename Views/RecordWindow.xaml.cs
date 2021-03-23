@@ -1,5 +1,4 @@
 ﻿using MyPlathsRecordingSoftware.Dialog;
-using MyPlathsRecordingSoftware.Resolution;
 using MyPlathsRecordingSoftware.ViewModels;
 using System;
 using System.Collections.Generic;
