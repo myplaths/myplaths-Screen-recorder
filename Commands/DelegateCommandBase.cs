@@ -127,6 +127,8 @@ namespace MyPlathsRecordingSoftware.Commands
 
     public class DelegateCommand : DelegateCommandBase
     {
+       
+
         public DelegateCommand(Action execute) :
             base(new Action<object>(o =>
             {
@@ -136,6 +138,8 @@ namespace MyPlathsRecordingSoftware.Commands
                 }
             }))
         { }
+
+        
 
         public DelegateCommand(Action execute, Func<bool> canExecuteMethod) :
             base(new Action<object>(o =>

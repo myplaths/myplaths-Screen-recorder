@@ -111,6 +111,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviours\EnableDragHelper.cs" />
+    <Compile Include="Behaviours\WindowMoveBehavior.cs" />
     <Compile Include="Commands\DelegateCommandBase.cs" />
     <Compile Include="Converters\ButtonMultipleParameters.cs" />
     <Compile Include="DependencyProperties\MyMouseBehaviour.cs" />
@@ -119,10 +121,11 @@
     <Compile Include="Random\EventArgs.cs" />
     <Compile Include="Random\EventRaiser.cs" />
     <Compile Include="Random\ExampleRecording.cs" />
-    <Compile Include="Random\MouseBehaviour.cs" />
+    <Compile Include="Behaviours\MouseBehaviour.cs" />
     <Compile Include="Random\TestClassNotInUse.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowModel.cs" />
+    <Compile Include="ViewModels\MoveWindowCommand.cs" />
     <Compile Include="ViewModels\RecordWindowModel.cs" />
     <Compile Include="Views\RecordWindow.xaml.cs">
       <DependentUpon>RecordWindow.xaml</DependentUpon>

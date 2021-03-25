@@ -35,8 +35,9 @@ namespace MyPlathsRecordingSoftware.ViewModels
         public event EventHandler CanExecuteChanged;
 
         public string Message { get; }
-        public ICommand OkCommand { get; set; }
+        public ICommand CloseWindowCommand { get; set; }
         public ICommand CancelCommand { get; set; }
+        public ICommand MoveWindowCommand { get; set; }
 
 
         private double _width;
@@ -60,11 +61,15 @@ namespace MyPlathsRecordingSoftware.ViewModels
 
         public RecordWindowModel()
         {
-           
-            OkCommand = new DelegateCommand<object>(Execute);
+            CloseWindowCommand = new DelegateCommand<object>(Execute);
             CancelCommand = new DelegateCommand(Cancel);
-          
-            
+            //MoveWindowCommand = new MoveWindowCommand(MoveWindow);
+        }
+
+        private void MoveWindow(object sender, MouseButtonEventArgs e)
+        {
+           
+            Console.WriteLine("diditevenrun");
         }
 
         private void Cancel()
@@ -72,8 +77,7 @@ namespace MyPlathsRecordingSoftware.ViewModels
             CloseRequested?.Invoke(this, new DialogCloseRequestedEventArgs(false));
         }
         public void Submit()
-        {
-            
+        {            
             CloseRequested?.Invoke(this, new DialogCloseRequestedEventArgs(true));
         }
 
